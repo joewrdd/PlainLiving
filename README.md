@@ -1,17 +1,12 @@
-# plainliving
+# Plain Living - Restraint Spending, Earn Freedom
 
-A new Flutter project.
+<div align="center">
 
-## Getting Started
+![SimpleLife Banner](assets/images/otakuwrdd.png)
 
-This project is a starting point for a Flutter application.
+[![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-2.18+-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)
+[![GetX](https://img.shields.io/badge/GetX-State%20Management-4B4453?style=for-the-badge&logo=flutter&logoColor=white)](https://pub.dev/packages/get)
+[![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# PlainLiving
+</div>
