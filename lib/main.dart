@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:plainliving/bin/bindings.dart';
 import 'package:plainliving/utils/themes/theme.dart';
-import 'package:plainliving/views/main/screens/login/login.dart';
+import 'package:plainliving/views/auth/screens/onboarding/onboarding.dart';
 
 Future<void> main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
+
+  await GetStorage.init();
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   //TODO: Remove When Backend Is Ready
@@ -22,11 +26,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialBinding: AppBinding(),
-      home: const LoginScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }

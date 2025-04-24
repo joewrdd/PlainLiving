@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:plainliving/common/widgets/ios/text_selection.dart';
@@ -7,10 +6,11 @@ import 'package:plainliving/utils/constants/colors.dart';
 import 'package:plainliving/utils/constants/images.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
-import 'package:plainliving/views/main/screens/login/login.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plainliving/views/auth/screens/signup/signup.dart';
 
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class SignUpForm extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Create Account',
+                "Login",
                 style: GoogleFonts.benne(
-                  fontSize: 38,
+                  fontSize: 42,
                   fontWeight: FontWeight.bold,
                   color: isDark ? ConstantColors.white : ConstantColors.dark,
                 ),
@@ -48,7 +48,7 @@ class SignUpForm extends StatelessWidget {
             ],
           ),
           Text(
-            'Start Your Financial Freedom Now!',
+            "Get Back To Smart Money Saving!",
             style: GoogleFonts.benne(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -64,7 +64,7 @@ class SignUpForm extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  // Email Input
+                  // Email
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Email',
@@ -95,96 +95,19 @@ class SignUpForm extends StatelessWidget {
                     cursorColor:
                         isDark ? ConstantColors.white : ConstantColors.dark,
                     contextMenuBuilder: (context, editableTextState) {
-                      final List<ContextMenuButtonItem> buttomItems =
+                      final List<ContextMenuButtonItem> buttonItems =
                           editableTextState.contextMenuButtonItems;
                       return AdaptiveTextSelectionToolbar.buttonItems(
-                        buttonItems: buttomItems,
                         anchors: editableTextState.contextMenuAnchors,
+                        buttonItems: buttonItems,
                       );
                     },
                     selectionControls: BlackThemeTextSelectionControls(),
                   ),
+
                   const SizedBox(height: ConstantSizes.spaceBtwInputFields),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'First Name',
-                      hintStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      border: UnderlineInputBorder(),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isDark ? Colors.grey[700]! : Colors.grey[300]!,
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.dark,
-                        ),
-                      ),
-                      labelStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                    ),
-                    cursorColor:
-                        isDark ? ConstantColors.white : ConstantColors.dark,
-                    contextMenuBuilder: (context, editableTextState) {
-                      final List<ContextMenuButtonItem> buttomItems =
-                          editableTextState.contextMenuButtonItems;
-                      return AdaptiveTextSelectionToolbar.buttonItems(
-                        buttonItems: buttomItems,
-                        anchors: editableTextState.contextMenuAnchors,
-                      );
-                    },
-                    selectionControls: BlackThemeTextSelectionControls(),
-                  ),
-                  const SizedBox(height: ConstantSizes.spaceBtwInputFields),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Last Name',
-                      hintStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      border: UnderlineInputBorder(),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isDark ? Colors.grey[700]! : Colors.grey[300]!,
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.dark,
-                        ),
-                      ),
-                      labelStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                    ),
-                    cursorColor:
-                        isDark ? ConstantColors.white : ConstantColors.dark,
-                    contextMenuBuilder: (context, editableTextState) {
-                      final List<ContextMenuButtonItem> buttomItems =
-                          editableTextState.contextMenuButtonItems;
-                      return AdaptiveTextSelectionToolbar.buttonItems(
-                        buttonItems: buttomItems,
-                        anchors: editableTextState.contextMenuAnchors,
-                      );
-                    },
-                    selectionControls: BlackThemeTextSelectionControls(),
-                  ),
-                  const SizedBox(height: ConstantSizes.spaceBtwInputFields),
+
+                  // Password
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -229,73 +152,44 @@ class SignUpForm extends StatelessWidget {
                     cursorColor:
                         isDark ? ConstantColors.white : ConstantColors.dark,
                     contextMenuBuilder: (context, editableTextState) {
-                      final List<ContextMenuButtonItem> buttomItems =
+                      final List<ContextMenuButtonItem> buttonItems =
                           editableTextState.contextMenuButtonItems;
                       return AdaptiveTextSelectionToolbar.buttonItems(
-                        buttonItems: buttomItems,
                         anchors: editableTextState.contextMenuAnchors,
+                        buttonItems: buttonItems,
                       );
                     },
                     selectionControls: BlackThemeTextSelectionControls(),
                   ),
-                  const SizedBox(height: ConstantSizes.spaceBtwInputFields),
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Confirm Password',
-                      hintStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      border: UnderlineInputBorder(),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isDark ? Colors.grey[700]! : Colors.grey[300]!,
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.dark,
-                        ),
-                      ),
-                      labelStyle: TextStyle(
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        fontSize: 14,
-                      ),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: IconButton(
-                        highlightColor: Colors.transparent,
-                        icon: Icon(
-                          FontAwesomeIcons.solidEyeSlash,
-                          size: 20,
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.dark,
-                        ),
 
+                  const SizedBox(height: ConstantSizes.spaceBtwItems / 2),
+
+                  // Forgot Password
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
                         onPressed: () {},
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size(50, 30),
+                          overlayColor: Colors.transparent,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: isDark ? Colors.white70 : Colors.black54,
+                          ),
+                        ),
                       ),
-                    ),
-                    cursorColor:
-                        isDark ? ConstantColors.white : ConstantColors.dark,
-                    contextMenuBuilder: (context, editableTextState) {
-                      final List<ContextMenuButtonItem> buttomItems =
-                          editableTextState.contextMenuButtonItems;
-                      return AdaptiveTextSelectionToolbar.buttonItems(
-                        buttonItems: buttomItems,
-                        anchors: editableTextState.contextMenuAnchors,
-                      );
-                    },
-                    selectionControls: BlackThemeTextSelectionControls(),
+                    ],
                   ),
 
                   const SizedBox(height: ConstantSizes.spaceBtwSections + 10),
 
-                  // Sign Up Button
+                  // Log In Button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -308,12 +202,12 @@ class SignUpForm extends StatelessWidget {
                             ConstantSizes.buttonCircular,
                           ),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           vertical: ConstantSizes.buttonHeight,
                         ),
                       ),
                       child: Text(
-                        'Sign Up',
+                        'Log In',
                         style: GoogleFonts.benne(fontSize: 19),
                       ),
                     ),
@@ -392,14 +286,14 @@ class SignUpForm extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account?",
+                        "Don't have an account?",
                         style: TextStyle(
                           color: isDark ? Colors.white70 : Colors.black54,
                           fontSize: 13,
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Get.to(() => const LoginScreen()),
+                        onTap: () => Get.to(() => const SignUpScreen()),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4),
                           child: Icon(

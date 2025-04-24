@@ -8,6 +8,8 @@ class ConstantColors {
   static const Color fourth = Color(0xFF424949);
   static const Color accent = Color(0xFFD7DBDD);
 
+  static const Color test1 = Color(0xFF00FF6F);
+
   // Text Colors
   static const Color textPrimary = Color(0xFF333333);
   static const Color textSecondary = Color(0xFF6C757D);
