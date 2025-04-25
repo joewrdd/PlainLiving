@@ -23,7 +23,10 @@ class OnBoardingDotNavigation extends StatelessWidget {
         effect: SwapEffect(
           dotWidth: 10,
           dotHeight: 10,
-          dotColor: ConstantColors.softGrey,
+          dotColor:
+              isDark
+                  ? const Color.fromARGB(42, 249, 249, 249)
+                  : const Color.fromARGB(119, 147, 147, 147),
           activeDotColor: isDark ? ConstantColors.white : ConstantColors.black,
         ),
       ),

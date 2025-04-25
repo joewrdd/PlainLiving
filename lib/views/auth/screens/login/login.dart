@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
     return Scaffold(
-      backgroundColor: isDark ? ConstantColors.darker : ConstantColors.white,
+      backgroundColor: isDark ? ConstantColors.dark : ConstantColors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

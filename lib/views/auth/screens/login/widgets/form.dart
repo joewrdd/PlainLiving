@@ -8,6 +8,7 @@ import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plainliving/views/auth/screens/signup/signup.dart';
+import 'package:plainliving/views/home/navigation.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -193,7 +194,7 @@ class LoginForm extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => const NavigationMenu()),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: isDark ? Colors.white : Colors.black,
                         foregroundColor: isDark ? Colors.black : Colors.white,
