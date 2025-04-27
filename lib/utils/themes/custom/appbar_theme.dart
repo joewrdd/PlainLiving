@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
 import '../../constants/colors.dart';
 
 class CustomAppBarTheme {
   CustomAppBarTheme._();
 
-  static const lightAppBarTheme = AppBarTheme(
+  static final lightAppBarTheme = AppBarTheme(
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
     backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
+    systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.transparent,
+    ),
     iconTheme: IconThemeData(
       color: ConstantColors.black,
       size: ConstantSizes.iconMd,
@@ -25,12 +29,16 @@ class CustomAppBarTheme {
       color: ConstantColors.black,
     ),
   );
-  static const darkAppBarTheme = AppBarTheme(
+
+  static final darkAppBarTheme = AppBarTheme(
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
     backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
+    systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.transparent,
+    ),
     iconTheme: IconThemeData(
       color: ConstantColors.black,
       size: ConstantSizes.iconMd,

@@ -22,20 +22,13 @@ class NavigationMenu extends StatelessWidget {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: isDark ? ConstantColors.dark : ConstantColors.white,
-          boxShadow: [
-            BoxShadow(
-              color: isDark ? ConstantColors.dark : ConstantColors.white,
-              blurRadius: 10,
-              offset: Offset(0, -1),
-            ),
-          ],
         ),
         child: Obx(
           () => NavigationBarTheme(
             data: NavigationBarThemeData(
               indicatorColor: Colors.transparent,
-              backgroundColor:
-                  isDark ? ConstantColors.dark : ConstantColors.lightContainer,
+              backgroundColor: Colors.transparent,
+              overlayColor: WidgetStateProperty.all(Colors.transparent),
               labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
               labelTextStyle: WidgetStateTextStyle.resolveWith((states) {
                 if (states.contains(WidgetState.selected)) {
