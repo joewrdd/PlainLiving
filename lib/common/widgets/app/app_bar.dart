@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final isDark = HelperFunctions.isDarkMode(context);
     final controller = Get.put(AppScrollController());
     return PreferredSize(
-      preferredSize: Size.fromHeight(45),
+      preferredSize: Size.fromHeight(30),
       child: Obx(
         () => AnimatedOpacity(
           opacity: controller.opacity.value > 0.05 ? 1.0 : 0.0,
@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            toolbarHeight: 50,
+            toolbarHeight: 30,
             title: Text(title),
             centerTitle: true,
           ),
@@ -53,5 +53,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(45);
+  Size get preferredSize => Size.fromHeight(40);
 }

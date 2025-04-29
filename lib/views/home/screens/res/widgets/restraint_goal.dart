@@ -11,6 +11,7 @@ class RestraintGoalContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
     return GestureDetector(
+      // TODO: Add Modal Bottom Sheet
       onTap: () {},
       child: Container(
         height: 116,
@@ -41,7 +42,7 @@ class RestraintGoalContainer extends StatelessWidget {
                     style: TextStyle(
                       color:
                           isDark ? ConstantColors.white : ConstantColors.black,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),
                   ),
