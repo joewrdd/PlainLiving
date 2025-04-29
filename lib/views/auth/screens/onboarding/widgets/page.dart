@@ -39,7 +39,7 @@ class OnBoardingPage extends StatelessWidget {
           const SizedBox(height: ConstantSizes.spaceBtwItems / 1.5),
           Text(
             'PlainLiving',
-            style: GoogleFonts.benne(
+            style: GoogleFonts.inter(
               fontSize: 30,
               fontWeight: FontWeight.bold,
               color: isDark ? ConstantColors.white : ConstantColors.black,
@@ -47,7 +47,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Text(
             'Empowering Smarter Financial Moves',
-            style: GoogleFonts.benne(
+            style: GoogleFonts.inter(
               fontSize: 15,
               fontWeight: FontWeight.bold,
               color: ConstantColors.darkGrey,
@@ -57,7 +57,7 @@ class OnBoardingPage extends StatelessWidget {
 
           Text(
             'Disciplined Budgeting',
-            style: GoogleFonts.benne(
+            style: GoogleFonts.inter(
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: isDark ? ConstantColors.white : ConstantColors.black,
@@ -65,7 +65,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Text(
             'Financial Freedom',
-            style: GoogleFonts.benne(
+            style: GoogleFonts.inter(
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: ConstantColors.test1,
@@ -84,61 +84,52 @@ class OnBoardingPage extends StatelessWidget {
                   children: [
                     Icon(icon1, color: ConstantColors.test1),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        point1,
-                        style: GoogleFonts.benne(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.black,
-                        ),
+                    Text(
+                      point1,
+                      style: GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color:
+                            isDark
+                                ? ConstantColors.white
+                                : ConstantColors.black,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: ConstantSizes.spaceBtwSections),
+                const SizedBox(height: ConstantSizes.spaceBtwSections + 2),
                 Row(
                   children: [
                     Icon(icon2, color: ConstantColors.test1),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        point2,
-                        style: GoogleFonts.benne(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.black,
-                        ),
+                    Text(
+                      point2,
+                      style: GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color:
+                            isDark
+                                ? ConstantColors.white
+                                : ConstantColors.black,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: ConstantSizes.spaceBtwSections),
+                const SizedBox(height: ConstantSizes.spaceBtwSections + 2),
 
                 Row(
                   children: [
                     Icon(icon3, color: ConstantColors.test1),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        point3,
-                        style: GoogleFonts.benne(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color:
-                              isDark
-                                  ? ConstantColors.white
-                                  : ConstantColors.black,
-                        ),
+                    Text(
+                      point3,
+                      style: GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color:
+                            isDark
+                                ? ConstantColors.white
+                                : ConstantColors.black,
                       ),
                     ),
                   ],

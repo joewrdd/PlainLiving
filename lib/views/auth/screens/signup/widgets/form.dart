@@ -29,7 +29,7 @@ class SignUpForm extends StatelessWidget {
             children: [
               Text(
                 'Create Account',
-                style: GoogleFonts.benne(
+                style: GoogleFonts.inter(
                   fontSize: 38,
                   fontWeight: FontWeight.bold,
                   color: isDark ? ConstantColors.white : ConstantColors.dark,
@@ -37,7 +37,7 @@ class SignUpForm extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: ConstantSizes.borderRadiusMd,
+                  top: ConstantSizes.borderRadiusSm,
                 ),
                 child: Image.asset(
                   isDark ? ConstantImages.logoWhite : ConstantImages.logoBlack,
@@ -47,13 +47,16 @@ class SignUpForm extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            'Start Your Financial Freedom Now!',
-            style: GoogleFonts.benne(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.5,
-              color: isDark ? ConstantColors.white : ConstantColors.dark,
+          Padding(
+            padding: const EdgeInsets.only(left: ConstantSizes.borderRadiusSm),
+            child: Text(
+              'Start Your Financial Freedom Now!',
+              style: GoogleFonts.inter(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+                color: isDark ? ConstantColors.white : ConstantColors.dark,
+              ),
             ),
           ),
           const SizedBox(height: ConstantSizes.spaceBtwItems),
@@ -314,7 +317,7 @@ class SignUpForm extends StatelessWidget {
                       ),
                       child: Text(
                         'Sign Up',
-                        style: GoogleFonts.benne(fontSize: 19),
+                        style: GoogleFonts.inter(fontSize: 16),
                       ),
                     ),
                   ),

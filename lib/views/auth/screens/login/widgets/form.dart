@@ -30,7 +30,7 @@ class LoginForm extends StatelessWidget {
             children: [
               Text(
                 "Login",
-                style: GoogleFonts.benne(
+                style: GoogleFonts.inter(
                   fontSize: 42,
                   fontWeight: FontWeight.bold,
                   color: isDark ? ConstantColors.white : ConstantColors.dark,
@@ -38,7 +38,7 @@ class LoginForm extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: ConstantSizes.borderRadiusMd,
+                  top: ConstantSizes.borderRadiusSm,
                 ),
                 child: Image.asset(
                   isDark ? ConstantImages.logoWhite : ConstantImages.logoBlack,
@@ -50,8 +50,8 @@ class LoginForm extends StatelessWidget {
           ),
           Text(
             "Get Back To Smart Money Saving!",
-            style: GoogleFonts.benne(
-              fontSize: 14,
+            style: GoogleFonts.inter(
+              fontSize: 12,
               fontWeight: FontWeight.w600,
               letterSpacing: 0.5,
               color: isDark ? ConstantColors.white : ConstantColors.dark,
@@ -209,7 +209,7 @@ class LoginForm extends StatelessWidget {
                       ),
                       child: Text(
                         'Log In',
-                        style: GoogleFonts.benne(fontSize: 19),
+                        style: GoogleFonts.inter(fontSize: 16),
                       ),
                     ),
                   ),

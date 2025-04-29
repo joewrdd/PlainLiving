@@ -21,7 +21,7 @@ class NavigationMenu extends StatelessWidget {
           isDark ? ConstantColors.dark : ConstantColors.lightContainer,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: isDark ? ConstantColors.dark : ConstantColors.white,
+          color: isDark ? ConstantColors.dark : ConstantColors.lightContainer,
         ),
         child: Obx(
           () => NavigationBarTheme(
