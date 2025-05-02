@@ -48,4 +48,8 @@ class ConstantColors {
   static const Color softGrey = Color(0xFFF4F4F4);
   static const Color lightGrey = Color(0xFFF9F9F9);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color dGrey = Color.fromARGB(51, 245, 245, 245);
+  static const Color lGrey = Color.fromARGB(62, 35, 35, 35);
+  static const Color invTextField = Color.fromARGB(62, 35, 35, 35);
+  static const Color bgTextField = Color.fromARGB(255, 221, 219, 219);
 }
