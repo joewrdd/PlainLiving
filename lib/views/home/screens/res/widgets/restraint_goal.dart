@@ -3,6 +3,7 @@ import 'package:plainliving/utils/constants/colors.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/device/device.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
+import 'package:plainliving/views/home/screens/res/widgets/restraint_goal_modalsheet.dart';
 
 class RestraintGoalContainer extends StatelessWidget {
   const RestraintGoalContainer({super.key});
@@ -11,8 +12,18 @@ class RestraintGoalContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
     return GestureDetector(
-      // TODO: Add Modal Bottom Sheet
-      onTap: () {},
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          showDragHandle: false,
+          backgroundColor: isDark ? ConstantColors.dark : ConstantColors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+          ),
+          builder: (context) => const RestraintGoalModalSheet(),
+        );
+      },
       child: Container(
         height: 116,
         width: 500,

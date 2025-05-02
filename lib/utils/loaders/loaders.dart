@@ -42,7 +42,7 @@ class Loaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
-      backgroundColor: ConstantColors.primary,
+      backgroundColor: ConstantColors.darkNavy,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),

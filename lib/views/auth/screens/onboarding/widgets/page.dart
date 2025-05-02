@@ -68,7 +68,7 @@ class OnBoardingPage extends StatelessWidget {
             style: GoogleFonts.inter(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: ConstantColors.test1,
+              color: ConstantColors.auth,
             ),
           ),
           const SizedBox(height: ConstantSizes.spaceBtwSections * 3),
@@ -82,7 +82,7 @@ class OnBoardingPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(icon1, color: ConstantColors.test1),
+                    Icon(icon1, color: ConstantColors.auth),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
                     Text(
                       point1,
@@ -100,7 +100,7 @@ class OnBoardingPage extends StatelessWidget {
                 const SizedBox(height: ConstantSizes.spaceBtwSections + 2),
                 Row(
                   children: [
-                    Icon(icon2, color: ConstantColors.test1),
+                    Icon(icon2, color: ConstantColors.auth),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
                     Text(
                       point2,
@@ -119,7 +119,7 @@ class OnBoardingPage extends StatelessWidget {
 
                 Row(
                   children: [
-                    Icon(icon3, color: ConstantColors.test1),
+                    Icon(icon3, color: ConstantColors.auth),
                     const SizedBox(width: ConstantSizes.spaceBtwItems / 2),
                     Text(
                       point3,

@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 class ConstantColors {
   // App Theme Colors
-  static const Color primary = Color(0xFF0B5345);
-  static const Color secondary = Color(0xFF1ABC9C);
-  static const Color secondaryGrad = Color(0xFF16A085);
+  static const Color primary = Color(0xFF001233);
   static const Color fourth = Color(0xFF424949);
   static const Color accent = Color(0xFFD7DBDD);
+  static const Color darkBlue = Color(0xFF001845);
+  static const Color darkNavy = Color(0xFF001233);
+  static const Color auth = Color(0xFF0353A4);
 
-  static const Color test1 = Color(0xFF00FF6F);
+  // Impulse Colors
+  static const Color impulsePurple = Color(0xFF6F2DBD);
+  static const Color impulsePink = Color(0xFFA663CC);
+  static const Color impulsePalePink = Color(0xFFB298DC);
+  static const Color impulsePaleBlue = Color(0xFFB8D0EB);
+  static const Color impulsePaleNeonBlue = Color(0xFFB9FAF8);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF333333);

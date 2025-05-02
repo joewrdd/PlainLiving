@@ -15,7 +15,7 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'SourceSansPro',
     brightness: Brightness.light,
-    primaryColor: ConstantColors.primary,
+    primaryColor: ConstantColors.darkNavy,
     scaffoldBackgroundColor: ConstantColors.white,
     textTheme: CustomTextTheme.lightTextTheme,
     chipTheme: CustomChipTheme.lightChipTheme,
@@ -34,7 +34,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     fontFamily: 'SourceSansPro',
     brightness: Brightness.dark,
-    primaryColor: ConstantColors.primary,
+    primaryColor: ConstantColors.darkNavy,
     scaffoldBackgroundColor: ConstantColors.black,
     textTheme: CustomTextTheme.darkTextTheme,
     chipTheme: CustomChipTheme.darkChipTheme,

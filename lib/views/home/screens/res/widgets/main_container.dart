@@ -13,7 +13,7 @@ class MainContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         gradient: LinearGradient(
-          colors: [const Color.fromARGB(255, 55, 152, 60), Colors.green],
+          colors: [ConstantColors.darkBlue, ConstantColors.darkNavy],
         ),
         boxShadow: [
           BoxShadow(

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:plainliving/common/widgets/layout/listview_layout.dart';
 import 'package:plainliving/common/widgets/shapes/circle_container.dart';
 import 'package:plainliving/utils/constants/colors.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
-import 'package:plainliving/views/home/screens/all_res/all_restraint_records.dart';
 
-class RecentRecordsContainer extends StatelessWidget {
-  const RecentRecordsContainer({super.key});
+class RelatedRecords extends StatelessWidget {
+  const RelatedRecords({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,41 +32,9 @@ class RecentRecordsContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Recent Records',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Get.to(() => const AllRestraintRecords());
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        'View All',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color:
-                              isDark
-                                  ? ConstantColors.darkGrey
-                                  : ConstantColors.black,
-                        ),
-                      ),
-                      Icon(
-                        Iconsax.arrow_right_3,
-                        size: 16,
-                        color:
-                            isDark
-                                ? ConstantColors.darkGrey
-                                : ConstantColors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            Text(
+              'Related Records',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: ConstantSizes.spaceBtwItems),
             CustomListViewLayout(
@@ -114,7 +79,7 @@ class RecentRecordsContainer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'PS5' + ' - Overpriced',
+                                    'ASUS Monitor',
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,
@@ -123,7 +88,7 @@ class RecentRecordsContainer extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
-                                    '29/04/2025',
+                                    '1/05/2025',
                                     style: TextStyle(
                                       color:
                                           isDark
@@ -139,7 +104,7 @@ class RecentRecordsContainer extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            '+\$500',
+                            '+\$1100',
                             style: TextStyle(
                               fontSize: 16.5,
                               fontWeight: FontWeight.w500,

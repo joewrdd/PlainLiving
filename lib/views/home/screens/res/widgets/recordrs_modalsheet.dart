@@ -225,19 +225,17 @@ class RecordRSModalSheet extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        side: BorderSide(color: Colors.transparent),
                         backgroundColor:
                             isDark
-                                ? ConstantColors.white
+                                ? ConstantColors.darkContainer
                                 : ConstantColors.black,
                       ),
                       onPressed: () {},
                       child: Text(
                         'Save Record',
                         style: TextStyle(
-                          color:
-                              isDark
-                                  ? ConstantColors.black
-                                  : ConstantColors.white,
+                          color: ConstantColors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
