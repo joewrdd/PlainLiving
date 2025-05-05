@@ -18,7 +18,7 @@ class AddGoalModal extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(
         top: ConstantSizes.defaultSpace / 2,
-        left: ConstantSizes.defaultSpace,
+        left: ConstantSizes.defaultSpace / 1.8,
         right: ConstantSizes.defaultSpace,
         bottom:
             MediaQuery.of(context).viewInsets.bottom +

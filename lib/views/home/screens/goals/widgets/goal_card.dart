@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import 'package:plainliving/utils/constants/colors.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
@@ -43,7 +44,7 @@ class GoalCard extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(ConstantSizes.defaultSpace / 1.5),
+            padding: const EdgeInsets.all(ConstantSizes.defaultSpace / 1.7),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -69,7 +70,10 @@ class GoalCard extends StatelessWidget {
                                 : ConstantColors.white,
                       ),
                       child: PopupMenuButton(
-                        icon: const Icon(Icons.more_horiz),
+                        padding: EdgeInsets.only(
+                          left: ConstantSizes.defaultSpace,
+                        ),
+                        icon: const Icon(Iconsax.more_circle, size: 24),
                         onSelected: (value) {
                           if (value == 'delete') {
                             Get.dialog(
@@ -212,7 +216,7 @@ class GoalCard extends StatelessWidget {
                       '$progressPercent%',
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         color: isDark ? Colors.white : Colors.black,
                       ),
                     ),
@@ -227,8 +231,8 @@ class GoalCard extends StatelessWidget {
                     value: progress,
                     backgroundColor:
                         isDark ? Colors.grey.shade800 : Colors.grey.shade300,
-                    valueColor: const AlwaysStoppedAnimation<Color>(
-                      Colors.grey,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      isDark ? Colors.white : Colors.black,
                     ),
                     minHeight: 8,
                   ),
@@ -251,6 +255,7 @@ class GoalCard extends StatelessWidget {
                           DateFormat('MMM dd, yyyy').format(targetDate),
                           style: TextStyle(
                             fontSize: 14,
+                            fontWeight: FontWeight.w300,
                             color: isDark ? Colors.grey : Colors.grey.shade700,
                           ),
                         ),

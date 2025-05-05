@@ -17,7 +17,6 @@ class GoalsScreen extends StatelessWidget {
     final isDark = HelperFunctions.isDarkMode(context);
     final scrollController = Get.put(AppScrollController());
     final controller = Get.put(GoalsController());
-
     return Scaffold(
       backgroundColor:
           isDark ? ConstantColors.dark : ConstantColors.lightContainer,
