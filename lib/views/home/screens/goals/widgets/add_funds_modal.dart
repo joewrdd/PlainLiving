@@ -20,7 +20,6 @@ class AddFundsModal extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
     final controller = Get.put(GoalsController());
-    final TextEditingController amountController = TextEditingController();
     return Container(
       padding: EdgeInsets.only(
         top: ConstantSizes.defaultSpace / 2,
@@ -101,7 +100,7 @@ class AddFundsModal extends StatelessWidget {
               ),
             ),
             TextField(
-              controller: amountController,
+              controller: controller.targetAmountController,
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d{0,2}')),
@@ -170,29 +169,33 @@ class AddFundsModal extends StatelessWidget {
               spacing: 10,
               runSpacing: 10,
               children:
-                  [1000, 5000, 10000, 50000, 100000].map((amount) {
+                  [500, 1000, 5000, 10000, 50000, 100000].map((amount) {
                     return InkWell(
                       onTap: () {
-                        amountController.text = amount.toString();
+                        controller.targetAmountController.text =
+                            amount.toString();
                       },
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
-                        ),
+                        height: 39,
+                        width: 125,
+
                         decoration: BoxDecoration(
-                          color:
-                              isDark
-                                  ? ConstantColors.darkContainer
-                                  : Colors.grey.shade200,
+                          border: Border.all(
+                            color: ConstantColors.darkGrey.withOpacity(0.4),
+                          ),
                           borderRadius: BorderRadius.circular(
                             ConstantSizes.borderRadiusMd,
                           ),
                         ),
-                        child: Text(
-                          '\$$amount',
-                          style: TextStyle(
-                            color: isDark ? Colors.white : Colors.black87,
+                        child: Center(
+                          child: Text(
+                            '\$$amount',
+                            style: TextStyle(
+                              color:
+                                  isDark
+                                      ? ConstantColors.white
+                                      : ConstantColors.dark,
+                            ),
                           ),
                         ),
                       ),
@@ -204,29 +207,7 @@ class AddFundsModal extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  if (amountController.text.isNotEmpty) {
-                    try {
-                      final amount = int.parse(
-                        amountController.text.replaceAll(',', ''),
-                      );
-                      controller.addFunds(goalId, amount);
-                      Get.back();
-                    } catch (e) {
-                      Get.snackbar(
-                        'Error',
-                        'Invalid amount. Please enter a valid number.',
-                        snackPosition: SnackPosition.BOTTOM,
-                      );
-                    }
-                  } else {
-                    Get.snackbar(
-                      'Error',
-                      'Please enter an amount',
-                      snackPosition: SnackPosition.BOTTOM,
-                    );
-                  }
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
@@ -243,7 +224,7 @@ class AddFundsModal extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: ConstantSizes.spaceBtwSections),
+            const SizedBox(height: ConstantSizes.spaceBtwSections * 2),
           ],
         ),
       ),

@@ -3,21 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:plainliving/common/widgets/shapes/circular_icon_text.dart';
+import 'package:plainliving/common/widgets/shapes/rounded_image.dart';
 import 'package:plainliving/utils/constants/colors.dart';
+import 'package:plainliving/utils/constants/images.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
+import 'package:plainliving/utils/device/device.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
-import 'package:plainliving/views/home/controllers/category_controller.dart';
 import 'package:plainliving/views/home/controllers/goals_controller.dart';
 
-class AddGoalModal extends StatelessWidget {
-  const AddGoalModal({super.key});
+class EditGoalModal extends StatelessWidget {
+  const EditGoalModal({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
     final controller = Get.put(GoalsController());
-    final categoryController = Get.put(CategoryController());
+    final scrollController = ScrollController();
     return Container(
       height: MediaQuery.of(context).size.height * 0.92,
       decoration: BoxDecoration(
@@ -31,7 +32,7 @@ class AddGoalModal extends StatelessWidget {
         padding: EdgeInsets.only(
           top: 6,
           left: 6,
-          right: ConstantSizes.defaultSpace / 2,
+          right: 6,
           bottom: ConstantSizes.defaultSpace,
         ),
         child: Column(
@@ -40,11 +41,16 @@ class AddGoalModal extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                IconButton(
+                TextButton(
                   onPressed: () => Get.back(),
-                  icon: Icon(
-                    Icons.close,
-                    color: isDark ? ConstantColors.white : ConstantColors.black,
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(
+                      color:
+                          isDark ? ConstantColors.white : ConstantColors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -52,7 +58,7 @@ class AddGoalModal extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(right: 40),
                       child: Text(
-                        'Add New Savings Goal',
+                        'Edit Saving Goal',
                         style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
@@ -72,59 +78,109 @@ class AddGoalModal extends StatelessWidget {
 
             Expanded(
               child: SingleChildScrollView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: scrollController,
                 child: Padding(
                   padding: const EdgeInsets.all(ConstantSizes.defaultSpace / 2),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 4.0, bottom: 4.0),
-                        child: Text(
-                          'Select Icon',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: ConstantColors.darkerGrey,
+                      Container(
+                        height: 220,
+                        width: 450,
+                        decoration: BoxDecoration(
+                          color: ConstantColors.white,
+                          borderRadius: BorderRadius.circular(
+                            ConstantSizes.borderRadiusMd,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: ConstantColors.grey.withOpacity(0.2),
+                              blurRadius: 3,
+                              offset: Offset(2, 2.5),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: ConstantSizes.defaultSpace,
+                            right: ConstantSizes.defaultSpace,
+                            top: ConstantSizes.defaultSpace / 2,
+                            bottom: ConstantSizes.defaultSpace / 2,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              RoundedImage(
+                                image: ConstantImages.car,
+                                width: 60,
+                                height: 60,
+                              ),
+                              const SizedBox(
+                                height: ConstantSizes.spaceBtwItems / 2,
+                              ),
+                              Text(
+                                'Current Progress',
+                                style: TextStyle(
+                                  color:
+                                      isDark
+                                          ? ConstantColors.white
+                                          : ConstantColors.dark,
+                                  fontSize: 12.25,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: ConstantSizes.spaceBtwItems / 2,
+                              ),
+                              Text(
+                                '0%',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: ConstantSizes.spaceBtwItems / 4,
+                              ),
+                              Text(
+                                '\$1000 / \$10000',
+                                style: TextStyle(
+                                  color:
+                                      isDark
+                                          ? ConstantColors.white
+                                          : ConstantColors.dark,
+                                  fontSize: 12.25,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: ConstantSizes.spaceBtwItems,
+                              ),
+                              SizedBox(
+                                width: DeviceUtils.getScreenWidth(context),
+                                height: 8,
+                                child: LinearProgressIndicator(
+                                  value: 0.32,
+                                  backgroundColor:
+                                      isDark
+                                          ? ConstantColors.darkGrey
+                                          : ConstantColors.grey,
+                                  valueColor: AlwaysStoppedAnimation(
+                                    isDark
+                                        ? ConstantColors.white
+                                        : ConstantColors.black,
+                                  ),
+                                  borderRadius: BorderRadius.circular(7),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 100,
-                        child: Obx(() {
-                          return ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: categoryController.categories.length,
-                            itemBuilder: (context, index) {
-                              final isSelected =
-                                  categoryController
-                                      .selectedCategoryIndex
-                                      .value ==
-                                  index;
-                              return Padding(
-                                padding: EdgeInsets.only(right: 4.0),
-                                child: CustomVerticalImageText(
-                                  image:
-                                      categoryController.categories[index].icon,
-                                  title:
-                                      categoryController.categories[index].name,
-                                  isNetworkImage: false,
-                                  backgroundColor: ConstantColors.lightGrey,
-                                  textColor:
-                                      isDark
-                                          ? ConstantColors.white
-                                          : ConstantColors.black,
-                                  isSelected: isSelected,
-                                  onTap: () {
-                                    categoryController.selectCategory(index);
-                                    categoryController.update();
-                                  },
-                                ),
-                              );
-                            },
-                          );
-                        }),
-                      ),
 
+                      const SizedBox(height: ConstantSizes.spaceBtwItems),
                       Padding(
                         padding: const EdgeInsets.only(left: 4.0, bottom: 4.0),
                         child: Text(
@@ -371,7 +427,7 @@ class AddGoalModal extends StatelessWidget {
                             ),
                           ),
                           child: const Text(
-                            'Create Goal',
+                            'Save Changes',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,

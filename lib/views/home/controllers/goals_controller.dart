@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plainliving/views/home/controllers/category_controller.dart';
 
 class GoalsController extends GetxController {
   static GoalsController get instance => Get.find();
 
   final RxList<Map<String, dynamic>> goals = <Map<String, dynamic>>[].obs;
+  final RxList<Map<String, dynamic>> depositHistory =
+      <Map<String, dynamic>>[].obs;
   final Rx<int> selectedFilterIndex = 0.obs;
 
   final TextEditingController titleController = TextEditingController();
@@ -24,6 +27,7 @@ class GoalsController extends GetxController {
         'targetAmount': 5000000,
         'targetDate': DateTime(2026, 5, 17),
         'isActive': true,
+        'category': 'General',
       },
       {
         'id': '2',
@@ -32,6 +36,38 @@ class GoalsController extends GetxController {
         'targetAmount': 1000000,
         'targetDate': DateTime(2024, 12, 31),
         'isActive': true,
+        'category': 'General',
+      },
+    ]);
+
+    depositHistory.addAll([
+      {
+        'id': '1',
+        'goalId': '1',
+        'amount': 500,
+        'date': DateTime.now().subtract(const Duration(days: 2)),
+        'type': 'deposit',
+      },
+      {
+        'id': '2',
+        'goalId': '1',
+        'amount': 1000,
+        'date': DateTime.now().subtract(const Duration(days: 7)),
+        'type': 'deposit',
+      },
+      {
+        'id': '3',
+        'goalId': '2',
+        'amount': 300000,
+        'date': DateTime.now().subtract(const Duration(days: 15)),
+        'type': 'deposit',
+      },
+      {
+        'id': '4',
+        'goalId': '2',
+        'amount': 200000,
+        'date': DateTime.now().subtract(const Duration(days: 30)),
+        'type': 'deposit',
       },
     ]);
   }
@@ -55,6 +91,8 @@ class GoalsController extends GetxController {
 
     try {
       final amount = int.parse(targetAmountController.text.replaceAll(',', ''));
+      final categoryController = Get.find<CategoryController>();
+      final selectedCategory = categoryController.selectedCategory;
 
       goals.add({
         'id': DateTime.now().millisecondsSinceEpoch.toString(),
@@ -63,11 +101,15 @@ class GoalsController extends GetxController {
         'targetAmount': amount,
         'targetDate': targetDate.value,
         'isActive': true,
+        'category': selectedCategory.name,
+        'categoryIcon': selectedCategory.icon,
+        'categoryColor': selectedCategory.color,
       });
 
       titleController.clear();
       targetAmountController.clear();
       targetDate.value = DateTime.now().add(const Duration(days: 365));
+      categoryController.resetSelection();
 
       Get.back();
 
@@ -99,6 +141,15 @@ class GoalsController extends GetxController {
         'isActive': !willComplete,
       };
 
+      final depositId = DateTime.now().millisecondsSinceEpoch.toString();
+      depositHistory.add({
+        'id': depositId,
+        'goalId': goalId,
+        'amount': amount,
+        'date': DateTime.now(),
+        'type': 'deposit',
+      });
+
       if (willComplete) {
         Get.snackbar(
           'Congratulations!',
@@ -110,8 +161,27 @@ class GoalsController extends GetxController {
     }
   }
 
+  List<Map<String, dynamic>> getDepositHistoryForGoal(String goalId) {
+    return depositHistory
+        .where((deposit) => deposit['goalId'] == goalId)
+        .toList()
+      ..sort(
+        (a, b) => (b['date'] as DateTime).compareTo(a['date'] as DateTime),
+      );
+  }
+
+  Map<String, dynamic>? getGoalById(String goalId) {
+    try {
+      return goals.firstWhere((goal) => goal['id'] == goalId);
+    } catch (e) {
+      return null;
+    }
+  }
+
   void deleteGoal(String goalId) {
     goals.removeWhere((goal) => goal['id'] == goalId);
+    // Also remove all deposit history for this goal
+    depositHistory.removeWhere((deposit) => deposit['goalId'] == goalId);
   }
 
   List<Map<String, dynamic>> getFilteredGoals() {

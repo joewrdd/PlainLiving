@@ -9,6 +9,8 @@ import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
 import 'package:plainliving/views/home/controllers/goals_controller.dart';
 import 'package:plainliving/views/home/screens/goals/widgets/add_funds_modal.dart';
+import 'package:plainliving/views/home/screens/goals/widgets/edit_goal_modal.dart';
+import 'package:plainliving/views/home/screens/goals/widgets/view_deposit_history_modal.dart';
 
 class GoalCard extends StatelessWidget {
   const GoalCard({
@@ -112,9 +114,21 @@ class GoalCard extends StatelessWidget {
                               ),
                             );
                           } else if (value == 'edit') {
-                            // TODO: Edit Goal
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              showDragHandle: false,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => EditGoalModal(),
+                            );
                           } else {
-                            // TODO: View Deposit History
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              showDragHandle: false,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => ViewDepositHistoryModal(),
+                            );
                           }
                         },
                         itemBuilder:

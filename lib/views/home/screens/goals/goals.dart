@@ -209,7 +209,13 @@ class GoalsScreen extends StatelessWidget {
                       context: context,
                       showDragHandle: false,
                       isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
+                      backgroundColor:
+                          isDark ? ConstantColors.dark : ConstantColors.white,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20.0),
+                        ),
+                      ),
                       builder: (context) => AddGoalModal(),
                     );
                   },
