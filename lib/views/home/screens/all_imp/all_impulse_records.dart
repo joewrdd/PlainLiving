@@ -2,13 +2,15 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:plainliving/common/widgets/action_sheets/custom_action_sheet.dart';
-import 'package:plainliving/common/widgets/shapes/circle_container.dart';
-import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:get/get.dart';
-import 'package:plainliving/utils/helpers/helper.dart';
+import 'package:plainliving/common/widgets/shapes/circle_container.dart';
+import 'package:plainliving/common/widgets/shapes/rounded_image.dart';
 import 'package:plainliving/utils/constants/colors.dart';
+import 'package:plainliving/utils/constants/images.dart';
+import 'package:plainliving/utils/constants/sizes.dart';
+import 'package:plainliving/utils/helpers/helper.dart';
 import 'package:plainliving/views/home/controllers/scroll_controller.dart';
+import 'package:plainliving/common/widgets/action_sheets/custom_action_sheet.dart';
 
 const List<String> _timeList = [
   'All',
@@ -18,8 +20,8 @@ const List<String> _timeList = [
   'Last Year',
 ];
 
-class AllRestraintRecords extends StatelessWidget {
-  const AllRestraintRecords({super.key});
+class AllImpulseRecords extends StatelessWidget {
+  const AllImpulseRecords({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +96,7 @@ class AllRestraintRecords extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Total Saved',
+                              'Total Impulse Purchases',
                               style: TextStyle(
                                 color:
                                     isDark
@@ -160,7 +162,7 @@ class AllRestraintRecords extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '4 times',
+                              '2 times',
                               style: TextStyle(
                                 color:
                                     isDark
@@ -307,24 +309,47 @@ class AllRestraintRecords extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: BoxDecoration(
+                                            color: ConstantColors.active,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color:
+                                                  isDark
+                                                      ? ConstantColors.black
+                                                      : ConstantColors.white,
+                                              width: 1.5,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              ConstantSizes.spaceBtwItems / 2.5,
+                                        ),
                                         Stack(
                                           children: [
                                             CustomCircularContainer(
                                               radius: 100,
-                                              width: 50,
-                                              height: 50,
-                                              backgroundColor:
-                                                  ConstantColors.softGrey,
+                                              width: 40,
+                                              height: 40,
+                                              backgroundColor: ConstantColors
+                                                  .auth
+                                                  .withOpacity(0.1),
                                             ),
                                             Positioned(
                                               top: 0,
                                               right: 0,
                                               bottom: 0,
                                               left: 0,
-                                              child: Icon(
-                                                FontAwesomeIcons.arrowUp,
-                                                size: 16,
-                                                color: ConstantColors.black,
+                                              child: RoundedImage(
+                                                image: ConstantImages.car,
+                                                width: 30,
+                                                height: 30,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                imageColor: ConstantColors.auth,
                                               ),
                                             ),
                                           ],
@@ -339,7 +364,7 @@ class AllRestraintRecords extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'PS5' + ' - Overpriced',
+                                              'Nissan 370z' + ' - Not Needed',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.w500,
@@ -348,7 +373,7 @@ class AllRestraintRecords extends StatelessWidget {
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                             Text(
-                                              '29/04/2025',
+                                              '1/05/2025',
                                               style: TextStyle(
                                                 color:
                                                     isDark
@@ -366,10 +391,11 @@ class AllRestraintRecords extends StatelessWidget {
                                     Row(
                                       children: [
                                         Text(
-                                          '+\$500',
+                                          '\$12000',
                                           style: TextStyle(
                                             fontSize: 16.5,
                                             fontWeight: FontWeight.w500,
+                                            color: ConstantColors.error,
                                           ),
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,

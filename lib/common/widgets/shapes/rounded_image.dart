@@ -9,10 +9,11 @@ class RoundedImage extends StatelessWidget {
     this.width = 50,
     this.height = 50,
     this.backgroundColor,
+    this.imageColor,
   });
   final String image;
   final double width, height;
-  final Color? backgroundColor;
+  final Color? backgroundColor, imageColor;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,9 @@ class RoundedImage extends StatelessWidget {
             image,
             width: width * 0.6,
             height: height * 0.6,
-            color: isDark ? ConstantColors.black : ConstantColors.white,
+            color:
+                imageColor ??
+                (isDark ? ConstantColors.black : ConstantColors.white),
           ),
         ),
       ),

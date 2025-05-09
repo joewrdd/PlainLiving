@@ -12,8 +12,15 @@ class RecordRSModalSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
-    return SizedBox(
+    return Container(
       height: MediaQuery.of(context).size.height * 0.92,
+      decoration: BoxDecoration(
+        color: isDark ? ConstantColors.dark : ConstantColors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(ConstantSizes.borderRadiusLg),
+          topRight: Radius.circular(ConstantSizes.borderRadiusLg),
+        ),
+      ),
       child: Padding(
         padding: EdgeInsets.only(
           top: ConstantSizes.defaultSpace / 2,

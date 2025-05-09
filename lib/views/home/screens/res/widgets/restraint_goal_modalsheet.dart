@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:plainliving/views/home/screens/res/widgets/related_records.dart';
+import 'package:plainliving/utils/constants/colors.dart';
 import 'package:plainliving/utils/constants/sizes.dart';
+import 'package:plainliving/utils/helpers/helper.dart';
+import 'package:plainliving/views/home/screens/res/widgets/related_records.dart';
 import 'package:plainliving/views/home/screens/res/widgets/restraint_goal_details.dart';
 
 class RestraintGoalModalSheet extends StatelessWidget {
@@ -9,8 +11,16 @@ class RestraintGoalModalSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final isDark = HelperFunctions.isDarkMode(context);
+    return Container(
       height: MediaQuery.of(context).size.height * 0.92,
+      decoration: BoxDecoration(
+        color: isDark ? ConstantColors.dark : ConstantColors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(ConstantSizes.borderRadiusLg),
+          topRight: Radius.circular(ConstantSizes.borderRadiusLg),
+        ),
+      ),
       child: Padding(
         padding: EdgeInsets.only(
           top: ConstantSizes.defaultSpace / 1.5,
