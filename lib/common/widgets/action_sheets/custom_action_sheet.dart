@@ -8,10 +8,14 @@ class CustomActionSheet extends StatelessWidget {
     super.key,
     required this.onEditTap,
     required this.onDeleteTap,
+    required this.editTitle,
+    required this.deleteTitle,
   });
 
   final VoidCallback onEditTap;
   final VoidCallback onDeleteTap;
+  final String editTitle;
+  final String deleteTitle;
   @override
   Widget build(BuildContext context) {
     final isDark = HelperFunctions.isDarkMode(context);
@@ -20,7 +24,7 @@ class CustomActionSheet extends StatelessWidget {
         CupertinoActionSheetAction(
           onPressed: onEditTap,
           child: Text(
-            'Edit Goal',
+            'Edit ${editTitle}',
             style: TextStyle(
               color: isDark ? ConstantColors.white : ConstantColors.black,
             ),
@@ -29,7 +33,7 @@ class CustomActionSheet extends StatelessWidget {
         CupertinoActionSheetAction(
           isDestructiveAction: true,
           onPressed: onDeleteTap,
-          child: const Text('Delete Goal'),
+          child: Text('Delete ${deleteTitle}'),
         ),
       ],
       cancelButton: CupertinoActionSheetAction(

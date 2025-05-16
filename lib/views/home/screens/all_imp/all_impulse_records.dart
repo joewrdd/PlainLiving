@@ -11,6 +11,7 @@ import 'package:plainliving/utils/constants/sizes.dart';
 import 'package:plainliving/utils/helpers/helper.dart';
 import 'package:plainliving/views/home/controllers/scroll_controller.dart';
 import 'package:plainliving/common/widgets/action_sheets/custom_action_sheet.dart';
+import 'package:plainliving/views/home/screens/all_imp/widgets/edit_impulse_record.dart';
 
 const List<String> _timeList = [
   'All',
@@ -32,25 +33,26 @@ class AllImpulseRecords extends StatelessWidget {
       backgroundColor:
           isDark ? ConstantColors.dark : ConstantColors.lightContainer,
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  size: 22,
-                  color: isDark ? ConstantColors.white : ConstantColors.black,
-                ),
-              ),
-              Text("Back", style: TextStyle(fontSize: 18)),
-            ],
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          highlightColor: Colors.transparent,
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 22,
+            color: isDark ? ConstantColors.white : ConstantColors.black,
+          ),
+          onPressed: () => Get.back(),
+        ),
+        title: Text(
+          "Back",
+          style: TextStyle(
+            fontSize: 18,
+            color: isDark ? ConstantColors.white : ConstantColors.black,
+            fontWeight: FontWeight.w400,
           ),
         ),
-        leadingWidth: 80,
+        titleSpacing: 0,
+        leadingWidth: 30,
       ),
       body: Column(
         children: [
@@ -279,8 +281,11 @@ class AllImpulseRecords extends StatelessWidget {
                             context: context,
                             builder:
                                 (BuildContext context) => CustomActionSheet(
-                                  onEditTap: () {},
+                                  onEditTap:
+                                      () => Get.to(() => EditImpulseRecord()),
                                   onDeleteTap: () {},
+                                  editTitle: 'Impulse',
+                                  deleteTitle: 'Impulse',
                                 ),
                           );
                         },
